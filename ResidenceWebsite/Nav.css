@@ -4,12 +4,26 @@
     padding: 0;
 }
 
-.navLogo
+.headingLogo
+{
+    height: 150px;
+    width: 70%;
+    float: left;
+}
+
+.headingLogin
+{
+    height: 150px;
+    width: 30%;
+    float: left;
+}
+
+.navSpace
 {
     background-color: steelblue;
     float: left;
     width: 45%;
-    height: 150px;
+    height: 75px;
 }
 
 .navButtonSelected
@@ -19,7 +33,7 @@
     font: bold 25px "Century Gothic";
     float: left;
     width: 10%;
-    height: 150px;
+    height: 75px;
     border: 5px solid steelblue;
 }
 
@@ -30,7 +44,7 @@
     font: bold 25px "Century Gothic";
     float: left;
     width: 10%;
-    height: 150px;
+    height: 75px;
     border: none;
 }
 
@@ -43,17 +57,26 @@
     transition: color linear 0.5s;
 }
 
-.navLogin
+.navUsername
 {
     background-color: steelblue;
     float: right;
     width: 15%;
-    height: 150px;
+    height: 75px;
+    text-align:center;
+}
+
+.navUsernameLabel 
+{
+    color: white;
+    font: 20px "Century Gothic";
+    position: relative;
+    top: 10px;
 }
 
 .navLoginLabel
 {
-    color: white;
+    color: steelblue;
     font: 20px "Century Gothic";
 }
 
@@ -62,11 +85,16 @@
     background-color: lightsteelblue;
     color: white;
     font: bold 20px "Century Gothic";
-    height: 50px;
+    height: 75px;
+    width: 100px;
     border: 5px solid lightsteelblue;
     border-radius: 10px 10px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    top: -71px;
+    left: 295px;
+    margin-bottom: 0px;
 }
 
 
