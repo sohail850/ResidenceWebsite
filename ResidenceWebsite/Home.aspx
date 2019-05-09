@@ -38,6 +38,10 @@
                 <asp:Label class="navUsernameLabel" ID="Label1" runat="server" Text="You are not logged in!"></asp:Label>
             </div>
         </div>
+
+        <div class="contents">
+
+        </div>
     </form>
 </body>
 </html>

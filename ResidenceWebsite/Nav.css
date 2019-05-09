@@ -1,4 +1,5 @@
-﻿body
+﻿
+body
 {
     margin: 0;
     padding: 0;
@@ -18,8 +19,7 @@
     float: left;
 }
 
-.navSpace
-{
+.navSpace {
     background-color: steelblue;
     float: left;
     width: 45%;
@@ -87,14 +87,27 @@
     font: bold 20px "Century Gothic";
     height: 75px;
     width: 100px;
-    border: 5px solid lightsteelblue;
+    border: 5px groove lightsteelblue;
     border-radius: 10px 10px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    top: -71px;
-    left: 295px;
+    top: -65px;
+    left: 294px;
     margin-bottom: 0px;
+}
+
+.navLoginButton:hover 
+{
+    border: 5px ridge lightsteelblue;
+}
+
+.contents {
+    min-height: 100%;
+    background-image: linear-gradient(to bottom right, white 15%, lightblue, lightskyblue, steelblue);
+    width: 100%;
+    height: 1000px;
+    float: left;
 }
 
 

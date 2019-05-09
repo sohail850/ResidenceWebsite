@@ -78,6 +78,7 @@
     <Content Include="Nav.css" />
     <Content Include="Ratau.jpeg" />
     <Content Include="Residents.aspx" />
+    <Content Include="Residents.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

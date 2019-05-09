@@ -6,11 +6,12 @@
 <head runat="server">
     <title>Residents</title>
     <link rel="stylesheet" type="text/css" href="Nav.css" />
+    <link rel="stylesheet" type="text/css" href="Residents.css" />
+
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <div class="headingLogo">
+        <div class="headingLogo">
             <asp:Image ID="Image1" runat="server" Height="150px" ImageUrl="~/Ratau.jpeg" Width="750px" />
         </div>
         <div class="headingLogin">
@@ -39,7 +40,15 @@
                 <asp:Label class="navUsernameLabel" ID="Label1" runat="server" Text="You are not logged in!"></asp:Label>
             </div>
         </div>
+
+        <div class="contents">
+            <asp:GridView ID="GridView1" runat="server" CellPadding="4" Font-Names="Century Gothic">
+                <HeaderStyle BackColor="SteelBlue" Font-Size="18px" ForeColor="White" />
+            </asp:GridView>
+
+        &nbsp;<asp:Button class="dataButton" ID="Button6" runat="server" Text="Button" />
+
         </div>
     </form>
-</body>
+    </body>
 </html>
