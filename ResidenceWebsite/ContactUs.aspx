@@ -32,7 +32,7 @@
             <asp:Button class="navButton" ID="Button1" runat="server" Text="Home" OnClick="Button1_Click" />
             <asp:Button class="navButton" ID="Button2" runat="server" Text="Residents" OnClick="Button2_Click" />
             <asp:Button class="navButton" ID="Button3" runat="server" Text="Events" OnClick="Button3_Click" />
-            <asp:Button class="navButton" ID="Button4" runat="server" Text="Contact Us" OnClick="Button4_Click" />
+            <asp:Button class="navButtonSelected" ID="Button4" runat="server" Text="Contact Us" OnClick="Button4_Click" />
             <div class="navUsername">
                 <br />
                 <asp:Label class="navUsernameLabel" ID="Label1" runat="server" Text="You are not logged in!"></asp:Label>

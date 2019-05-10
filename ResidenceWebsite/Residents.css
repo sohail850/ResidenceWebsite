@@ -1,24 +1,96 @@
 ﻿#GridView1 
 {
-    margin-top: 50px;
+    background-color: white;
+    margin-top: 25px;
     margin-left: 100px;
     border: 5px solid steelblue;
     box-shadow: lightsteelblue 0px 0px 10px 15px;
 }
 
-.dataButton
-{
+.dataButton {
     background-color: steelblue;
     color: white;
     font: bold 20px "Century Gothic";
     height: 75px;
-    width: 100px;
-    border: 5px groove steelblue;
+    width: 50%;
     border-radius: 10px 10px;
-    position: relative;
+    box-shadow: 0 10px darkgray;
+    border: none;
+    margin-bottom: 25px;
 }
 
-.dataButton:hover
+.dataButton_AddEdit
 {
-    border: 5px ridge steelblue;
+    position: relative;
+    margin-left: 25%;
+}
+
+.dataButton_Delete
+{
+    width: 40%;
+    position: relative;
+    margin-left: 20%;
+}
+
+.dataButtonSearch
+{
+    height: 40px;
+    width: 100px;
+    position: relative;
+    border: 5px solid steelblue;
+    margin: 0px;
+}
+
+.dataButton:hover {
+    border-bottom: 5px solid steelblue;
+    transform: translateY(5px);
+    box-shadow: 0 5px gray;
+}
+
+.dataButton:hover ~ #ddListDelete
+{
+    transform: translateY(3px);
+}
+
+#txtBoxSearch
+{
+    margin-left: 500px;
+    border: 2px solid steelblue;
+    padding: 5px;
+}
+
+.contents_gridview {
+    margin-top: 100px;
+    width: 75%;
+    float: left;
+    height: 450px;
+}
+
+.contents_a
+{
+    margin-top: 100px;
+    width: 25%;
+    float: left;
+    height: 450px;
+}
+
+#ddListDelete
+{
+    position: relative;
+    top: 0px;
+    left: 5px;
+    border: 2px solid steelblue;
+    padding: 5px;
+}
+
+.contents_b {
+    margin-left: 100px;
+    width: 15%;
+    float: left;
+}
+
+.dataButton_Academic
+{
+    height: 50px;
+    margin-left: 25%;
 }

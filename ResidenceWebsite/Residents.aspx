@@ -19,12 +19,12 @@
             <br />
             <asp:Label class="navLoginLabel" ID="Label2" runat="server" Text="Username:"></asp:Label>
             &nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox1" runat="server" AutoPostBack="True"></asp:TextBox>
             <br />
             <br />
             <asp:Label class="navLoginLabel" ID="Label3" runat="server" Text="Password:"></asp:Label>
             &nbsp;&nbsp; &nbsp;
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox2" runat="server" AutoPostBack="True"></asp:TextBox>
             <br />
             &nbsp;
             <asp:Button Class="navLoginButton" ID="Button5" runat="server" Text="Login" />
@@ -42,12 +42,33 @@
         </div>
 
         <div class="contents">
-            <asp:GridView ID="GridView1" runat="server" CellPadding="4" Font-Names="Century Gothic">
-                <HeaderStyle BackColor="SteelBlue" Font-Size="18px" ForeColor="White" />
-            </asp:GridView>
-
-        &nbsp;<asp:Button class="dataButton" ID="Button6" runat="server" Text="Button" />
-
+                <div class="contents_gridview">
+                    <br />
+                    <asp:TextBox ID="txtBoxSearch" runat="server" AutoCompleteType="Disabled" AutoPostBack="True"></asp:TextBox>
+                    <asp:Button class="dataButton dataButtonSearch" ID="Button7" runat="server" OnClick="Button7_Click" Text="Search" />
+                    <asp:GridView ID="GridView1" runat="server" CellPadding="4" Font-Names="Century Gothic">
+                        <HeaderStyle BackColor="SteelBlue" Font-Size="18px" ForeColor="White" />
+                    </asp:GridView> 
+                </div>
+                <div class="contents_a">
+                    <asp:Button class="dataButton dataButton_AddEdit" ID="Button8" runat="server" OnClick="Button8_Click" Text="Add Resident" />
+                    <br />
+                    <br />
+                    <asp:Button class="dataButton dataButton_AddEdit" ID="btnEditResident" runat="server" OnClick="Button9_Click" Text="Edit Resident" />
+                    <br />
+                    <br />
+                    <asp:Button class="dataButton dataButton_Delete" ID="Button10" runat="server" OnClick="Button10_Click" Text="Delete Resident" />
+                    <asp:DropDownList ID="ddListDelete" runat="server">
+                    </asp:DropDownList>
+                </div>
+             <div class="contents_b">
+                <br />
+                <asp:Button class="dataButton dataButton_Academic" ID="Button11" runat="server" Text="Distinction" OnClick="Button11_Click" />
+                <br />
+                <asp:Button class="dataButton dataButton_Academic" ID="Button12" runat="server" Text="Pass" OnClick="Button12_Click" />
+                <br />
+                <asp:Button class="dataButton dataButton_Academic" ID="Button13" runat="server" Text="Fail" OnClick="Button13_Click" />
+            </div>
         </div>
     </form>
     </body>
