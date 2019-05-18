@@ -41,6 +41,32 @@
 
         <div class="contents">
 
+            <br />
+&nbsp;&nbsp;&nbsp;
+            <asp:Calendar ID="Calendar1" runat="server" Height="429px" OnSelectionChanged="Calendar1_SelectionChanged" Width="533px"></asp:Calendar>
+            <br />
+&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblOutput" runat="server"></asp:Label>
+            <br />
+            <br />
+&nbsp;&nbsp;&nbsp;
+            <asp:ListBox ID="eventsListBox" runat="server" Width="536px"></asp:ListBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnAddEvent" runat="server" OnClick="btnAddEvent_Click" Text="Add Event" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnRemoveEvent" runat="server" OnClick="btnRemoveEvent_Click" Text="Remove Event" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnEditEvent" runat="server" OnClick="btnEditEvent_Click" Text="Edit Event" />
+            <br />
+            <br />
+&nbsp;&nbsp;&nbsp;
+
         </div>
     </form>
 </body>

@@ -40,13 +40,13 @@ namespace ResidenceWebsite {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
         
         /// <summary>
         /// Label3 control.
@@ -58,22 +58,22 @@ namespace ResidenceWebsite {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// TextBox2 control.
+        /// txtPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
-        /// Button5 control.
+        /// btnLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button5;
+        protected global::System.Web.UI.WebControls.Button btnLogin;
         
         /// <summary>
         /// Button1 control.
@@ -112,12 +112,12 @@ namespace ResidenceWebsite {
         protected global::System.Web.UI.WebControls.Button Button4;
         
         /// <summary>
-        /// Label1 control.
+        /// lblUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblUsername;
     }
 }

@@ -17,15 +17,15 @@
             <br />
             <asp:Label class="navLoginLabel" ID="Label2" runat="server" Text="Username:"></asp:Label>
             &nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
             <br />
             <br />
             <asp:Label class="navLoginLabel" ID="Label3" runat="server" Text="Password:"></asp:Label>
             &nbsp;&nbsp; &nbsp;
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
             <br />
             &nbsp;
-            <asp:Button Class="navLoginButton" ID="Button5" runat="server" Text="Login" />
+            <asp:Button Class="navLoginButton" ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
         </div>
         <div class="nav">
             <div class="navSpace"></div>
@@ -35,7 +35,7 @@
             <asp:Button class="navButton" ID="Button4" runat="server" Text="Contact Us" OnClick="Button4_Click" />
             <div class="navUsername">
                 <br />
-                <asp:Label class="navUsernameLabel" ID="Label1" runat="server" Text="You are not logged in!"></asp:Label>
+                <asp:Label class="navUsernameLabel" ID="lblUsername" runat="server" Text="You are not logged in!"></asp:Label>
             </div>
         </div>
 

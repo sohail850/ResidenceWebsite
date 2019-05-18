@@ -19,11 +19,14 @@ namespace ResidenceWebsite
         public SqlDataAdapter adap;
         public SqlDataReader reader;
 
-        public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True";
+        public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ahatt\Documents\MyProjects\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True";
         public string sql = "";
+        public string username;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            username = Session["Username"].ToString();
+            Label1.Text = username;
             sql = @"SELECT Student_Number,First_Name,Last_Name,Room,Cell,Email,Degree,Academic_Year,Academic_Average FROM ResidentTable";
             conn = new SqlConnection(connString);
             conn.Open();
