@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace ResidenceWebsite
 {
@@ -19,12 +21,20 @@ namespace ResidenceWebsite
 
         public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ahatt\Documents\MyProjects\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True";
         public string sql = "";
-        public string username;
+        string username;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection(connString);
-            HttpCookie userCookie = Request.Cookies["UserCookie"];
+            try
+            {
+                username = Session["Username"].ToString();
+            }
+            catch (Exception)
+            {
+                lblUsername.Text = "You are not logged in!";
+            }
+            /*HttpCookie userCookie = Request.Cookies["UserCookie"];
 
             try
             {
@@ -39,7 +49,7 @@ namespace ResidenceWebsite
             catch (Exception error)
             {
                 lblUsername.Text = "You are not logged in!";
-            }
+            }*/
         }
 
         public void ShowLogin()
@@ -86,10 +96,26 @@ namespace ResidenceWebsite
             Response.Redirect("ContactUs.aspx");
         }
 
+        public string getSHA1Hash(string pw)
+        {
+            using (SHA1Managed sha1 = new SHA1Managed())
+            {
+                var hash = sha1.ComputeHash(Encoding.UTF8.GetBytes(pw));
+                var sb = new StringBuilder(hash.Length * 2);
+
+                foreach (byte b in hash)
+                {
+                    // can be "x2" if you want lowercase
+                    sb.Append(b.ToString("x2"));
+                }
+
+                return sb.ToString();
+            }
+        }
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             HttpCookie userCookie = Request.Cookies["UserCookie"];
-            string username;
             
             
             string user = txtUsername.Text;
@@ -111,15 +137,17 @@ namespace ResidenceWebsite
                 {
                     if (user == reader.GetValue(1).ToString())
                     {
-                        if (pass == reader.GetValue(2).ToString())
+                        if (getSHA1Hash(pass) == reader.GetValue(2).ToString())
                         {
-                            username = user;
+                            this.username = user;
                             userCookie = new HttpCookie("UserCookie");
                             userCookie["Username"] = username;
                             lblUsername.Text = username;
                             Session["Username"] = username;
-                                
+
+                            userCookie.Expires = DateTime.Now.AddDays(-1);
                             Response.Cookies.Add(userCookie);
+                            HideLogin();
                             break;
                         }
                     }

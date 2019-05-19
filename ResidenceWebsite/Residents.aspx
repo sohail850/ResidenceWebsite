@@ -69,6 +69,7 @@
                 <br />
                 <asp:Button class="dataButton dataButton_Academic" ID="Button13" runat="server" Text="Fail" OnClick="Button13_Click" />
             </div>
+                <asp:Label ID="lblOutput" runat="server"></asp:Label>
         </div>
     </form>
     </body>

@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddEvent.aspx" />
+    <Content Include="AddResident.aspx" />
     <Content Include="App_Data\ResidenceDB.mdf" />
     <Content Include="App_Data\ResidenceDB_log.ldf">
       <DependentUpon>ResidenceDB.mdf</DependentUpon>
@@ -75,6 +76,7 @@
     <Content Include="ContactUs.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="EditEvent.aspx" />
+    <Content Include="EditResident.aspx" />
     <Content Include="Events.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Nav.css" />
@@ -91,6 +93,13 @@
     </Compile>
     <Compile Include="AddEvent.aspx.designer.cs">
       <DependentUpon>AddEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddResident.aspx.cs">
+      <DependentUpon>AddResident.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddResident.aspx.designer.cs">
+      <DependentUpon>AddResident.aspx</DependentUpon>
     </Compile>
     <Compile Include="ContactUs.aspx.cs">
       <DependentUpon>ContactUs.aspx</DependentUpon>
@@ -112,6 +121,13 @@
     </Compile>
     <Compile Include="EditEvent.aspx.designer.cs">
       <DependentUpon>EditEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditResident.aspx.cs">
+      <DependentUpon>EditResident.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditResident.aspx.designer.cs">
+      <DependentUpon>EditResident.aspx</DependentUpon>
     </Compile>
     <Compile Include="Events.aspx.cs">
       <DependentUpon>Events.aspx</DependentUpon>

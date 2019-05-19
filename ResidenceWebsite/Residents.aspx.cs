@@ -26,6 +26,7 @@ namespace ResidenceWebsite
         protected void Page_Load(object sender, EventArgs e)
         {
             username = Session["Username"].ToString();
+            HideLogin();
             Label1.Text = username;
             sql = @"SELECT Student_Number,First_Name,Last_Name,Room,Cell,Email,Degree,Academic_Year,Academic_Average FROM ResidentTable";
             conn = new SqlConnection(connString);
@@ -47,6 +48,46 @@ namespace ResidenceWebsite
             reader.Close();
 
             conn.Close();
+        }
+
+        public void ShowLogin()
+        {
+            Button5.Visible = true;
+            Label2.Visible = true;
+            Label3.Visible = true;
+            TextBox1.Visible = true;
+            TextBox2.Visible = true;
+        }
+
+        public void HideLogin()
+        {
+            Button5.Visible = true;
+            Label2.Visible = true;
+            Label3.Visible = true;
+            TextBox1.Visible = true;
+            TextBox2.Visible = true;
+        }
+
+        public bool isAdmin(string user)
+        {
+            conn.Open();
+            sql = "SELECT * FROM ResidentTable";
+            comm = new SqlCommand(sql, conn);
+
+            reader = comm.ExecuteReader();
+
+            while (reader.Read())
+            {
+                if (reader.GetValue(1).ToString() == user)
+                {
+                    if (reader.GetValue(11).ToString() == "y")
+                    {
+                        return true;
+                    }
+                }
+            }
+            conn.Close();
+            return false;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -96,42 +137,55 @@ namespace ResidenceWebsite
         //Add Resident
         protected void Button8_Click(object sender, EventArgs e)
         {
+            if (isAdmin(username))
+            {
+                Response.Redirect("AddResident.aspx");
+            }
+            else
+            {
+                lblOutput.Text = "Only admin users can add residents.";
+            }
         }
 
         //Edit Resident
         protected void Button9_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("EditResident.aspx");
         }
 
         //Delete Resident
         protected void Button10_Click(object sender, EventArgs e)
         {
-            conn = new SqlConnection(connString);
-            conn.Open();
-
-            sql = @"DELETE FROM ResidentTable WHERE Student_Number = " + ddListDelete.SelectedValue;
-            comm = new SqlCommand(sql, conn);
-            comm.ExecuteNonQuery();
-
-            sql = @"SELECT Student_Number,First_Name,Last_Name,Room,Cell,Email,Degree,Academic_Year,Academic_Average FROM ResidentTable";
-            comm = new SqlCommand(sql, conn);
-            ds = new DataSet();
-            adap = new SqlDataAdapter();
-            adap.SelectCommand = comm;
-            adap.Fill(ds, "ResidentTable");
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
-
-            reader = comm.ExecuteReader();
-            while (reader.Read())
+            if (isAdmin(username))
             {
-                ddListDelete.Items.Add(reader.GetValue(0).ToString());
+                conn.Open();
+
+                sql = @"DELETE FROM ResidentTable WHERE Student_Number = " + ddListDelete.SelectedValue;
+                comm = new SqlCommand(sql, conn);
+                comm.ExecuteNonQuery();
+
+                sql = @"SELECT Student_Number,First_Name,Last_Name,Room,Cell,Email,Degree,Academic_Year,Academic_Average FROM ResidentTable";
+                comm = new SqlCommand(sql, conn);
+                ds = new DataSet();
+                adap = new SqlDataAdapter();
+                adap.SelectCommand = comm;
+                adap.Fill(ds, "ResidentTable");
+                GridView1.DataSource = ds;
+                GridView1.DataBind();
+
+                reader = comm.ExecuteReader();
+                while (reader.Read())
+                {
+                    ddListDelete.Items.Add(reader.GetValue(0).ToString());
+                }
+                reader.Close();
+
+                conn.Close();
             }
-            reader.Close();
-
-            conn.Close();
-
+            else
+            {
+                lblOutput.Text = "Only admin users can remove residents.";
+            }
         }
 
         //Show Distinctions
