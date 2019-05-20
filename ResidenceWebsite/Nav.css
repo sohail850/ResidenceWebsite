@@ -7,14 +7,14 @@ body
 
 .headingLogo
 {
-    height: 150px;
+    height: 175px;
     width: 70%;
     float: left;
 }
 
 .headingLogin
 {
-    height: 150px;
+    height: 175px;
     width: 30%;
     float: left;
 }
@@ -22,7 +22,7 @@ body
 .navSpace {
     background-color: steelblue;
     float: left;
-    width: 45%;
+    width: 40%;
     height: 75px;
 }
 
@@ -61,7 +61,7 @@ body
 {
     background-color: steelblue;
     float: right;
-    width: 15%;
+    width: 20%;
     height: 75px;
     text-align:center;
 }
@@ -85,15 +85,12 @@ body
     background-color: lightsteelblue;
     color: white;
     font: bold 20px "Century Gothic";
-    height: 75px;
+    height: 50px;
     width: 100px;
     border: 5px groove lightsteelblue;
     border-radius: 10px 10px;
     margin-left: auto;
     margin-right: auto;
-    position: relative;
-    top: -160px;
-    left: 1083px;
     margin-bottom: 0px;
 }
 

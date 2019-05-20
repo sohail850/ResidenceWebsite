@@ -6,11 +6,11 @@
 <head runat="server">
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="Nav.css" />
+    <link rel="stylesheet" type="text/css" href="Home.css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="headingLogo">
-            <asp:Image ID="Image1" runat="server" Height="150px" ImageUrl="~/Ratau.jpeg" Width="750px" />
         </div>
         <div class="headingLogin">
             <br />
@@ -23,9 +23,10 @@
             <asp:Label class="navLoginLabel" ID="Label3" runat="server" Text="Password:"></asp:Label>
             &nbsp;&nbsp; &nbsp;
             <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
-            <br />
             &nbsp;
             <asp:Button Class="navLoginButton" ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
+            <br />
+            <asp:CheckBox ID="CheckBox1" runat="server" Font-Names="Century Gothic" Text="Remember Me" />
         </div>
         <div class="nav">
             <div class="navSpace"></div>
@@ -36,11 +37,16 @@
             <div class="navUsername">
                 <br />
                 <asp:Label class="navUsernameLabel" ID="lblUsername" runat="server" Text="You are not logged in!"></asp:Label>
+            <asp:Button Class="navLoginButton" ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogin_Click" />
             </div>
         </div>
 
         <div class="contents">
 
+            <asp:Image class="homeLogo" ID="Image1" runat="server" Height="270px" ImageUrl="~/Ratau.jpeg" ImageAlign="Middle" />
+            <p class="homeContents">
+                We are the oldest residence on campus and it reflects in the richness of our tradition and values. Ratau’s vision is to pursue and achieve excellence in everything we do, all together, “hand in hand together”. Led by Prof PJ van der Merwe, Ratau opened its doors on 13 September 1940 as part of the then Potchefstroom College of Education (PCE). The resident’s name was borrowed from Prof Van der Merwe’s nickname in Tswana and means “Father Lion”. In his inaugural speech he used the phrase “In the Light of the Father” and to this day this is our motto.
+            </p>
         </div>
     </form>
 </body>

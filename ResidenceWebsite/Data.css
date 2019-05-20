@@ -1,0 +1,31 @@
+﻿body 
+{
+    padding-top: 10%;
+    padding-left: 35%;
+    padding-right: 35%;
+    background-image: linear-gradient(to bottom right, white 15%, lightblue, lightskyblue, steelblue);
+    min-height: 100%;
+
+    height: 1000px;
+}
+
+.dataContents
+{
+    padding: 50px;
+    border: 5px solid steelblue;
+    background-color: white;
+}
+
+.dataButton
+{
+    background-color: steelblue;
+    color: white;
+    font: bold 20px "Century Gothic";
+    height: 75px;
+    width: 50%;
+    border-radius: 10px 10px;
+    box-shadow: 0 10px darkgray;
+    border: none;
+    margin-bottom: 25px;
+}
+

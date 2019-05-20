@@ -11,24 +11,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="headingLogo">
-            <asp:Image ID="Image1" runat="server" Height="150px" ImageUrl="~/Ratau.jpeg" Width="750px" />
-        </div>
-        <div class="headingLogin">
-            <br />
-            <br />
-            <asp:Label class="navLoginLabel" ID="Label2" runat="server" Text="Username:"></asp:Label>
-            &nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox1" runat="server" AutoPostBack="True"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Label class="navLoginLabel" ID="Label3" runat="server" Text="Password:"></asp:Label>
-            &nbsp;&nbsp; &nbsp;
-            <asp:TextBox ID="TextBox2" runat="server" AutoPostBack="True"></asp:TextBox>
-            <br />
-            &nbsp;
-            <asp:Button Class="navLoginButton" ID="Button5" runat="server" Text="Login" />
-        </div>
         <div class="nav">
             <div class="navSpace"></div>
             <asp:Button class="navButton" ID="Button1" runat="server" Text="Home" OnClick="Button1_Click" />
@@ -38,6 +20,7 @@
             <div class="navUsername">
                 <br />
                 <asp:Label class="navUsernameLabel" ID="Label1" runat="server" Text="You are not logged in!"></asp:Label>
+            &nbsp;<asp:Button Class="navLoginButton" ID="btnLogout" runat="server" Text="Logout" />
             </div>
         </div>
 
@@ -46,7 +29,8 @@
                     <br />
                     <asp:TextBox ID="txtBoxSearch" runat="server" AutoCompleteType="Disabled" AutoPostBack="True"></asp:TextBox>
                     <asp:Button class="dataButton dataButtonSearch" ID="Button7" runat="server" OnClick="Button7_Click" Text="Search" />
-                    <asp:GridView ID="GridView1" runat="server" CellPadding="4" Font-Names="Century Gothic">
+                    &nbsp;<asp:Button class="dataButton dataButtonSearch" ID="btnShowAll" runat="server" OnClick="btnShowAll_Click" Text="Show All" />
+                    &nbsp;<asp:GridView ID="GridView1" runat="server" CellPadding="4" Font-Names="Century Gothic">
                         <HeaderStyle BackColor="SteelBlue" Font-Size="18px" ForeColor="White" />
                     </asp:GridView> 
                 </div>

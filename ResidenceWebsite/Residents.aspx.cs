@@ -19,14 +19,13 @@ namespace ResidenceWebsite
         public SqlDataAdapter adap;
         public SqlDataReader reader;
 
-        public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ahatt\Documents\MyProjects\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True";
+        public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
         public string sql = "";
         public string username;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             username = Session["Username"].ToString();
-            HideLogin();
             Label1.Text = username;
             sql = @"SELECT Student_Number,First_Name,Last_Name,Room,Cell,Email,Degree,Academic_Year,Academic_Average FROM ResidentTable";
             conn = new SqlConnection(connString);
@@ -48,24 +47,6 @@ namespace ResidenceWebsite
             reader.Close();
 
             conn.Close();
-        }
-
-        public void ShowLogin()
-        {
-            Button5.Visible = true;
-            Label2.Visible = true;
-            Label3.Visible = true;
-            TextBox1.Visible = true;
-            TextBox2.Visible = true;
-        }
-
-        public void HideLogin()
-        {
-            Button5.Visible = true;
-            Label2.Visible = true;
-            Label3.Visible = true;
-            TextBox1.Visible = true;
-            TextBox2.Visible = true;
         }
 
         public bool isAdmin(string user)
@@ -158,6 +139,7 @@ namespace ResidenceWebsite
         {
             if (isAdmin(username))
             {
+                conn = new SqlConnection(connString);
                 conn.Open();
 
                 sql = @"DELETE FROM ResidentTable WHERE Student_Number = " + ddListDelete.SelectedValue;
@@ -242,6 +224,22 @@ namespace ResidenceWebsite
             GridView1.DataSource = ds;
             GridView1.DataBind();
 
+            conn.Close();
+        }
+
+        protected void btnShowAll_Click(object sender, EventArgs e)
+        {
+            sql = @"SELECT Student_Number,First_Name,Last_Name,Room,Cell,Email,Degree,Academic_Year,Academic_Average FROM ResidentTable";
+            conn = new SqlConnection(connString);
+            conn.Open();
+
+            comm = new SqlCommand(sql, conn);
+            ds = new DataSet();
+            adap = new SqlDataAdapter();
+            adap.SelectCommand = comm;
+            adap.Fill(ds, "ResidentTable");
+            GridView1.DataSource = ds;
+            GridView1.DataBind();
             conn.Close();
         }
     }

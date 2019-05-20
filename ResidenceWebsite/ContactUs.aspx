@@ -6,27 +6,12 @@
 <head runat="server">
     <title>Contact Us</title>
     <link rel="stylesheet" type="text/css" href="Nav.css" />
+    <link rel="stylesheet" type="text/css" href="ContactUs.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="headingLogo">
-            <asp:Image ID="Image1" runat="server" Height="150px" ImageUrl="~/Ratau.jpeg" Width="750px" />
-        </div>
-        <div class="headingLogin">
-            <br />
-            <br />
-            <asp:Label class="navLoginLabel" ID="Label2" runat="server" Text="Username:"></asp:Label>
-            &nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Label class="navLoginLabel" ID="Label3" runat="server" Text="Password:"></asp:Label>
-            &nbsp;&nbsp; &nbsp;
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-            <br />
-            &nbsp;
-            <asp:Button Class="navLoginButton" ID="Button5" runat="server" Text="Login" />
-        </div>
         <div class="nav">
             <div class="navSpace"></div>
             <asp:Button class="navButton" ID="Button1" runat="server" Text="Home" OnClick="Button1_Click" />
@@ -36,11 +21,40 @@
             <div class="navUsername">
                 <br />
                 <asp:Label class="navUsernameLabel" ID="Label1" runat="server" Text="You are not logged in!"></asp:Label>
+            &nbsp;<asp:Button Class="navLoginButton" ID="btnLogout" runat="server" Text="Logout" />
             </div>
         </div>
 
         <div class="contents">
-
+            <div class="contactUsDiv">
+                <br />
+                <span class="contactUsHeading">
+                    Telephone Number:
+                </span>
+                <br />
+                <span class="contactUsParagraph">
+                    <i class="fas fa-phone" style="font-size:18px;color:black"></i>
+                    063 111 2607
+                </span>
+                <br /><br />
+                <span class="contactUsHeading">
+                    Email Adress:
+                </span>
+                <br />
+                <span class="contactUsParagraph">
+                    <i class="material-icons" style="font-size:18px;color:black;">email</i>
+                    rataulebone@gmail.com
+                </span>
+                <br /><br />
+                <span class="contactUsHeading">
+                    Social Media:
+                </span>
+                <br />
+                <span class="contactUsParagraph">
+                    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FNwuPukkeRatauLeboneManskoshuis%2F&width=152&layout=button_count&action=like&size=large&show_faces=false&share=true&height=46&appId" width="152" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                </span>
+                <br /><br />
+            </div>
         </div>
     </form>
 </body>

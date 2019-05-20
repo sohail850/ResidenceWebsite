@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="Data.css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -50,7 +51,7 @@
         </p>
         <p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnAddEvent" runat="server" OnClick="btnAddEvent_Click" Text="Add Event" />
+            <asp:Button class="dataButton" ID="btnAddEvent" runat="server" OnClick="btnAddEvent_Click" Text="Add Event" />
         </p>
     </form>
 </body>

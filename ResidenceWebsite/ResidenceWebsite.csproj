@@ -74,11 +74,15 @@
       <DependentUpon>ResidenceDB.mdf</DependentUpon>
     </Content>
     <Content Include="ContactUs.aspx" />
+    <Content Include="ContactUs.css" />
+    <Content Include="Data.css" />
     <Content Include="Default.aspx" />
     <Content Include="EditEvent.aspx" />
     <Content Include="EditResident.aspx" />
     <Content Include="Events.aspx" />
+    <Content Include="Events.css" />
     <Content Include="Home.aspx" />
+    <Content Include="Home.css" />
     <Content Include="Nav.css" />
     <Content Include="Ratau.jpeg" />
     <Content Include="RemoveEvent.aspx" />

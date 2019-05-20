@@ -6,27 +6,10 @@
 <head runat="server">
     <title>Events</title>
     <link rel="stylesheet" type="text/css" href="Nav.css" />
+    <link rel="stylesheet" type="text/css" href="Events.css" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="headingLogo">
-            <asp:Image ID="Image1" runat="server" Height="150px" ImageUrl="~/Ratau.jpeg" Width="750px" />
-        </div>
-        <div class="headingLogin">
-            <br />
-            <br />
-            <asp:Label class="navLoginLabel" ID="Label2" runat="server" Text="Username:"></asp:Label>
-            &nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Label class="navLoginLabel" ID="Label3" runat="server" Text="Password:"></asp:Label>
-            &nbsp;&nbsp; &nbsp;
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-            <br />
-            &nbsp;
-            <asp:Button Class="navLoginButton" ID="Button5" runat="server" Text="Login" />
-        </div>
         <div class="nav">
             <div class="navSpace"></div>
             <asp:Button class="navButton" ID="Button1" runat="server" Text="Home" OnClick="Button1_Click" />
@@ -36,6 +19,7 @@
             <div class="navUsername">
                 <br />
                 <asp:Label class="navUsernameLabel" ID="Label1" runat="server" Text="You are not logged in!"></asp:Label>
+            &nbsp;<asp:Button Class="navLoginButton" ID="btnLogout" runat="server" Text="Logout" />
             </div>
         </div>
 

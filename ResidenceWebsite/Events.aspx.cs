@@ -17,7 +17,7 @@ namespace ResidenceWebsite
         public SqlDataAdapter adap;
         public SqlDataReader reader;
 
-        public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ahatt\Documents\MyProjects\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True";
+        public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
         public string sql = "";
 
         public string username;
@@ -27,7 +27,6 @@ namespace ResidenceWebsite
             eventsListBox.Items.Clear();
             Calendar1.SelectedDates.Clear();
             username = Session["Username"].ToString();
-            HideLogin();
             Label1.Text = username;
             conn = new SqlConnection(connString);
             PopulateCalendar();
@@ -141,23 +140,6 @@ namespace ResidenceWebsite
             return false;
         }
 
-        public void ShowLogin()
-        {
-            Button5.Visible = true;
-            Label2.Visible = true;
-            Label3.Visible = true;
-            TextBox1.Visible = true;
-            TextBox2.Visible = true;
-        }
-
-        public void HideLogin()
-        {
-            Button5.Visible = true;
-            Label2.Visible = true;
-            Label3.Visible = true;
-            TextBox1.Visible = true;
-            TextBox2.Visible = true;
-        }
 
 
         protected void btnAddEvent_Click(object sender, EventArgs e)

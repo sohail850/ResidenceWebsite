@@ -1,0 +1,12 @@
+﻿.dataButton
+{
+    background-color: steelblue;
+    color: white;
+    font: bold 20px "Century Gothic";
+    height: 75px;
+    width: 50%;
+    border-radius: 10px 10px;
+    box-shadow: 0 10px darkgray;
+    border: none;
+    margin-bottom: 25px;
+}

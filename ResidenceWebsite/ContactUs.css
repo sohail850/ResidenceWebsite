@@ -1,0 +1,31 @@
+﻿.contactUsDiv 
+{
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 5%;
+
+
+    background-color: lightsteelblue;
+    border: 5px solid steelblue;
+    border-radius: 25px;
+    box-shadow: black 10px 10px 20px 10px;
+
+}
+
+.contactUsHeading
+{
+    margin-top: 10%;
+    margin-left: 5%;
+    color: steelblue;
+    font-family: "Century Gothic";
+    font-size: 20px;
+    text-decoration: underline;
+    font-weight: bold;
+
+}
+
+.contactUsParagraph
+{
+    margin-left: 5%;
+    font-size: 18px;
+}

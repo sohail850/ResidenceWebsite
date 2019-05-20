@@ -5,14 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="Data.css" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        <div>
-            {Sit in al die headers en CSS goed hierso}<br />
-        </div>
-            Select an event to edit:</div>
         <asp:ListBox ID="eventsListBox" runat="server" AutoPostBack="True" Height="135px" OnSelectedIndexChanged="eventsListBox_SelectedIndexChanged" Width="416px"></asp:ListBox>
         <br />
         <br />
@@ -50,7 +46,7 @@
         <br />
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnEditEvent" runat="server" OnClick="btnEditEvent_Click" Text="Edit Event" />
+        <asp:Button class="dataButton" ID="btnEditEvent" runat="server" OnClick="btnEditEvent_Click" Text="Edit Event" />
         <br />
         <br />
         <asp:Label ID="lblOutput" runat="server"></asp:Label>
