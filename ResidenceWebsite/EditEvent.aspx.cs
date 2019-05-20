@@ -17,42 +17,50 @@ namespace ResidenceWebsite
         public SqlDataAdapter adap;
         public SqlDataReader reader;
 
-        public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
+        public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ahatt\Documents\MyProjects\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
+        // @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
         public string sql = "";
 
         public string username;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //eventsListBox.Items.Clear();
-            //username = Session["Username"].ToString();
-            //HttpCookie cookie = new HttpCookie("EditEventsCookie");
-            //cookie["FirstLoad"] = "true";
-
-            conn = new SqlConnection(connString);
-            conn.Open();
-
-            sql = @"SELECT * FROM EventsTable";
-            comm = new SqlCommand(sql, conn);
-
-            try
+            if (!Page.IsPostBack)
             {
-                reader = comm.ExecuteReader();
-                string output;
+                //eventsListBox.Items.Clear();
+                //username = Session["Username"].ToString();
+                //HttpCookie cookie = new HttpCookie("EditEventsCookie");
+                //cookie["FirstLoad"] = "true";
 
-                while (reader.Read())
+                conn = new SqlConnection(connString);
+                conn.Open();
+
+                sql = @"SELECT * FROM EventsTable";
+                comm = new SqlCommand(sql, conn);
+
+                try
                 {
-                    output = string.Format("{0, -3}\t{1, -50}\t{2, -10}\t{3, -5}\t{4, -50}", reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4));
-                    eventsListBox.Items.Add(output);
-                }
-            }
-            catch (Exception er)
-            {
-                lblOutput.Text = "An unknown error occurred";
-            }
+                    reader = comm.ExecuteReader();
+                    string output;
 
-            reader.Close();
-            conn.Close();
+                    while (reader.Read())
+                    {
+                        output = string.Format("{0, -3}\t{1, -50}\t{2, -10}\t{3, -5}\t{4, -50}", reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3), reader.GetValue(4));
+                        eventsListBox.Items.Add(output);
+                    }
+                }
+                catch (Exception er)
+                {
+                    lblOutput.Text = "An unknown error occurred";
+                }
+
+                reader.Close();
+                conn.Close();
+            }
+            else
+            {
+                conn = new SqlConnection(connString);
+            }
         }
 
         protected void eventsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -69,6 +77,12 @@ namespace ResidenceWebsite
             conn.Open();
             string eventID = txtID.Text;
 
+            string date = txtDate.Text;
+            if (date.Contains("/"))
+            {
+                date = date.Replace("/", "-");
+            }
+
             sql = @"DELETE FROM EventsTable WHERE EventID = '" + eventID + "'";
             comm = new SqlCommand(sql, conn);
 
@@ -81,7 +95,7 @@ namespace ResidenceWebsite
 
             comm.Parameters.AddWithValue("ID", txtID.Text);
             comm.Parameters.AddWithValue("Description", txtDescription.Text);
-            comm.Parameters.AddWithValue("Date", txtDate.Text);
+            comm.Parameters.AddWithValue("Date", date);
             comm.Parameters.AddWithValue("Time", txtTime.Text);
             comm.Parameters.AddWithValue("Venue", txtVenue.Text);
 

@@ -19,7 +19,7 @@
             <div class="navUsername">
                 <br />
                 <asp:Label class="navUsernameLabel" ID="Label1" runat="server" Text="You are not logged in!"></asp:Label>
-            &nbsp;<asp:Button Class="navLoginButton" ID="btnLogout" runat="server" Text="Logout" />
+            &nbsp;<asp:Button Class="navLoginButton" ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
             </div>
         </div>
 

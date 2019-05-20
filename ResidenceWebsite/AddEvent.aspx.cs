@@ -17,7 +17,8 @@ namespace ResidenceWebsite
         public SqlDataAdapter adap;
         public SqlDataReader reader;
 
-        public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
+        public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ahatt\Documents\MyProjects\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
+        // @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
         public string sql = "";
 
         public string username;
@@ -57,9 +58,15 @@ namespace ResidenceWebsite
             sql = "INSERT INTO EventsTable VALUES(@ID, @Description, @Date, @Time, @Venue)";
             comm = new SqlCommand(sql, conn);
 
+            string date = txtDate.Text;
+            if (date.Contains("/"))
+            {
+                date = date.Replace("/", "-");
+            }
+
             comm.Parameters.AddWithValue("ID", txtID.Text);
             comm.Parameters.AddWithValue("Description", txtDescription.Text);
-            comm.Parameters.AddWithValue("Date", txtDate.Text);
+            comm.Parameters.AddWithValue("Date", date);
             comm.Parameters.AddWithValue("Time", txtTime.Text);
             comm.Parameters.AddWithValue("Venue", txtVenue.Text);
 

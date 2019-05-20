@@ -26,14 +26,14 @@
         <br />
         <asp:Label ID="Label3" runat="server" Text="Password:"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="txtPass" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtPass" runat="server" TextMode="Password"></asp:TextBox>
 &nbsp;
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtPass" ErrorMessage="This field is required"></asp:RequiredFieldValidator>
             <br />
         <br />
         <asp:Label ID="Label4" runat="server" Text="Confirm password:"></asp:Label>
 &nbsp;
-        <asp:TextBox ID="txtConfirm" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtConfirm" runat="server" TextMode="Password"></asp:TextBox>
 &nbsp;
         &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtConfirm" ErrorMessage="This field is required"></asp:RequiredFieldValidator>
             &nbsp;<asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtPass" ControlToValidate="txtConfirm" ErrorMessage="Passwords do not match"></asp:CompareValidator>

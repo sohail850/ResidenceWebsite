@@ -17,19 +17,28 @@ namespace ResidenceWebsite
         public SqlDataAdapter adap;
         public SqlDataReader reader;
 
-        public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
+        public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ahatt\Documents\MyProjects\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
+        // @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
         public string sql = "";
 
         public string username;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            eventsListBox.Items.Clear();
-            Calendar1.SelectedDates.Clear();
-            username = Session["Username"].ToString();
-            Label1.Text = username;
-            conn = new SqlConnection(connString);
-            PopulateCalendar();
+            try
+            {
+                eventsListBox.Items.Clear();
+                Calendar1.SelectedDates.Clear();
+                username = Session["Username"].ToString();
+                Label1.Text = username;
+                conn = new SqlConnection(connString);
+                PopulateCalendar();
+            }
+            catch (Exception)
+            {
+                lblOutput.Text = "You are not logged in!";
+                Response.Redirect("Home.aspx");
+            }
         }
 
         // This method selects all the dates in the calendar for which an event is scheduled
@@ -93,10 +102,11 @@ namespace ResidenceWebsite
             sql = @"SELECT * FROM EventsTable";
             comm = new SqlCommand(sql, conn);
 
+            string dateString = "";
             try
             {
                 reader = comm.ExecuteReader();
-                string dateString;
+                
                 DateTime date;
                 while (reader.Read())
                 {
@@ -109,6 +119,7 @@ namespace ResidenceWebsite
             }
             catch (Exception er)
             {
+                //lblOutput.Text = dateString;
                 // Do nothing
             }
 
@@ -176,6 +187,13 @@ namespace ResidenceWebsite
             {
                 lblOutput.Text = "Only admin users can remove events.";
             }
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            username = null;
+            Session["Username"] = null;
+            Response.Redirect("Home.aspx");
         }
     }
 }

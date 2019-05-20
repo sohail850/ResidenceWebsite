@@ -19,34 +19,42 @@ namespace ResidenceWebsite
         public SqlDataAdapter adap;
         public SqlDataReader reader;
 
-        public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
+        public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ahatt\Documents\MyProjects\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
+        // @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
         public string sql = "";
         public string username;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            username = Session["Username"].ToString();
-            Label1.Text = username;
-            sql = @"SELECT Student_Number,First_Name,Last_Name,Room,Cell,Email,Degree,Academic_Year,Academic_Average FROM ResidentTable";
-            conn = new SqlConnection(connString);
-            conn.Open();
-
-            comm = new SqlCommand(sql, conn);
-            ds = new DataSet();
-            adap = new SqlDataAdapter();
-            adap.SelectCommand = comm;
-            adap.Fill(ds, "ResidentTable");
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
-
-            reader = comm.ExecuteReader();
-            while(reader.Read())
+            try
             {
-                ddListDelete.Items.Add(reader.GetValue(0).ToString());
-            }
-            reader.Close();
+                username = Session["Username"].ToString();
+                Label1.Text = username;
+                sql = @"SELECT Student_Number,First_Name,Last_Name,Room,Cell,Email,Degree,Academic_Year,Academic_Average FROM ResidentTable";
+                conn = new SqlConnection(connString);
+                conn.Open();
 
-            conn.Close();
+                comm = new SqlCommand(sql, conn);
+                ds = new DataSet();
+                adap = new SqlDataAdapter();
+                adap.SelectCommand = comm;
+                adap.Fill(ds, "ResidentTable");
+                GridView1.DataSource = ds;
+                GridView1.DataBind();
+
+                reader = comm.ExecuteReader();
+                while (reader.Read())
+                {
+                    ddListDelete.Items.Add(reader.GetValue(0).ToString());
+                }
+                reader.Close();
+
+                conn.Close();
+            }
+            catch (Exception)
+            {
+                Response.Redirect("Home.aspx");
+            }
         }
 
         public bool isAdmin(string user)
@@ -241,6 +249,13 @@ namespace ResidenceWebsite
             GridView1.DataSource = ds;
             GridView1.DataBind();
             conn.Close();
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            username = null;
+            Session["Username"] = null;
+            Response.Redirect("Home.aspx");
         }
     }
 }

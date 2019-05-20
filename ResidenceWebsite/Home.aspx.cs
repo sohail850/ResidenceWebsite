@@ -19,7 +19,8 @@ namespace ResidenceWebsite
         public SqlDataAdapter adap;
         public SqlDataReader reader;
 
-        public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
+        public string connString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ahatt\Documents\MyProjects\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
+        // @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git\ResidenceWebsite\ResidenceWebsite\App_Data\ResidenceDB.mdf;Integrated Security=True;Connect Timeout=30";
         public string sql = "";
         string username;
 
@@ -29,6 +30,8 @@ namespace ResidenceWebsite
             try
             {
                 username = Session["Username"].ToString();
+                lblUsername.Text = username;
+                HideLogin();
             }
             catch (Exception)
             {
@@ -157,6 +160,14 @@ namespace ResidenceWebsite
                 conn.Close();
             }
             
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            username = null;
+            Session["Username"] = username;
+            lblUsername.Text = "You are not logged in!";
+            ShowLogin();
         }
     }
 }
