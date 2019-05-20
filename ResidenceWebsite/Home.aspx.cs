@@ -180,7 +180,7 @@ namespace ResidenceWebsite
                         }
                     }
                 }
-                reader.Close();
+                reader.Close(); // xx
 
                 conn.Close();
             }
