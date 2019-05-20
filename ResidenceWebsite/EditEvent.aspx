@@ -9,25 +9,28 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <div class="dataContents">
         <asp:ListBox ID="eventsListBox" runat="server" AutoPostBack="True" Height="135px" OnSelectedIndexChanged="eventsListBox_SelectedIndexChanged" Width="416px"></asp:ListBox>
         <br />
         <br />
         <asp:Label ID="Label1" runat="server" Text="ID:"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="txtID" runat="server" Enabled="False"></asp:TextBox>
+            <br />
         <br />
         <asp:Label ID="Label2" runat="server" Text="Description:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
 &nbsp;
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDescription" ErrorMessage="This field is required"></asp:RequiredFieldValidator>
+            <br />
         <br />
         <asp:Label ID="Label3" runat="server" Text="Date:"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
 &nbsp;
         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtDate" ErrorMessage="This field is required"></asp:RequiredFieldValidator>
-&nbsp;
+&nbsp;<br />
         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtDate" ErrorMessage="Incorrect date format. Please use something like '2019-05-25'" ValidationExpression="^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$"></asp:RegularExpressionValidator>
         <br />
         <asp:Label ID="Label4" runat="server" Text="Time:"></asp:Label>
@@ -44,12 +47,13 @@
 &nbsp;
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtVenue" ErrorMessage="This field is required"></asp:RequiredFieldValidator>
         <br />
-        <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br />
+            &nbsp;
         <asp:Button class="dataButton" ID="btnEditEvent" runat="server" OnClick="btnEditEvent_Click" Text="Edit Event" />
         <br />
         <br />
         <asp:Label ID="lblOutput" runat="server"></asp:Label>
+        </div>
     </form>
 </body>
 </html>

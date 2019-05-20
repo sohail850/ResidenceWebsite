@@ -9,17 +9,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            {Sit in al die headers en CSS goed hierso}<br />
-            <br />
-        </div>
+        <div class="dataContents">
+        
         <p>
             &nbsp;<asp:Label ID="Label1" runat="server" Text="ID:"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:TextBox ID="txtID" runat="server" Enabled="False"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="Label2" runat="server" Text="Date:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
 &nbsp;
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtDate" ErrorMessage="This field is required"></asp:RequiredFieldValidator>
@@ -28,7 +26,7 @@
         </p>
         <p>
             <asp:Label ID="Label3" runat="server" Text="Time:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtTime" runat="server"></asp:TextBox>
 &nbsp;
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtTime" ErrorMessage="This field is required"></asp:RequiredFieldValidator>
@@ -37,7 +35,7 @@
         </p>
         <p>
             <asp:Label ID="Label4" runat="server" Text="Description:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
 &nbsp;
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDescription" ErrorMessage="This field is required"></asp:RequiredFieldValidator>
@@ -50,9 +48,9 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtVenue" ErrorMessage="This field is required"></asp:RequiredFieldValidator>
         </p>
         <p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button class="dataButton" ID="btnAddEvent" runat="server" OnClick="btnAddEvent_Click" Text="Add Event" />
+&nbsp;<asp:Button Class="dataButton" ID="btnAddEvent" runat="server" OnClick="btnAddEvent_Click" Text="Add Event" />
         </p>
+            </div>
     </form>
 </body>
 </html>
