@@ -26,7 +26,7 @@
             &nbsp;
             <asp:Button Class="navLoginButton" ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
             <br />
-            <asp:CheckBox ID="CheckBox1" runat="server" Font-Names="Century Gothic" Text="Remember Me" Visible="False" />
+            <asp:CheckBox ID="CheckBox1" runat="server" Font-Names="Century Gothic" Text="Remember Me" />
         </div>
         <div class="nav">
             <div class="navSpace"></div>

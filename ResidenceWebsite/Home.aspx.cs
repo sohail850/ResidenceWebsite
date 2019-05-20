@@ -36,7 +36,26 @@ namespace ResidenceWebsite
             catch (Exception)
             {
                 lblUsername.Text = "You are not logged in!";
+                if (!Page.IsPostBack)
+                {
+                    try
+                    {
+                        HttpCookie userCookie = Request.Cookies["UserCookie"];
+                        username = userCookie["Username"].ToString();
+                        lblUsername.Text = username;
+                        Session["Username"] = username;
+                        HideLogin();
+                    }
+                    catch (Exception)
+                    {
+                        lblUsername.Text = "You are not logged in!";
+                    }
+                }
             }
+
+            
+
+            
             /*HttpCookie userCookie = Request.Cookies["UserCookie"];
 
             try
@@ -62,6 +81,7 @@ namespace ResidenceWebsite
             Label3.Visible = true;
             txtUsername.Visible = true;
             txtPassword.Visible = true;
+            CheckBox1.Visible = true;
         }
 
         public void HideLogin()
@@ -71,6 +91,7 @@ namespace ResidenceWebsite
             Label3.Visible = false;
             txtUsername.Visible = false;
             txtPassword.Visible = false;
+            CheckBox1.Visible = false;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -143,14 +164,18 @@ namespace ResidenceWebsite
                         if (getSHA1Hash(pass) == reader.GetValue(2).ToString())
                         {
                             this.username = user;
-                            userCookie = new HttpCookie("UserCookie");
-                            userCookie["Username"] = username;
                             lblUsername.Text = username;
                             Session["Username"] = username;
-
-                            userCookie.Expires = DateTime.Now.AddDays(-1);
-                            Response.Cookies.Add(userCookie);
                             HideLogin();
+
+                            if (CheckBox1.Checked)
+                            {
+                                userCookie = new HttpCookie("UserCookie");
+                                userCookie["Username"] = username;
+                                userCookie.Expires = DateTime.Now.AddDays(1);
+                                Response.Cookies.Add(userCookie);
+                            }
+                            
                             break;
                         }
                     }
